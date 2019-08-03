@@ -3,9 +3,9 @@ Figma plugin: Reverse Layer Order
 
 Figma plugin to reverse the order of the selected layers.
 
-## Feedback
+## Usage
 
-Send any comments, concerns, or suggestions to [mike@mikegowen.com](mailto:mike@mikegowen.com)
+Select 2 or more layers within the same parent.
 
 ## License
 
