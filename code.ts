@@ -29,6 +29,8 @@ function main() {
   sortedSelectionIndexes.forEach((index, i) => {
     var clone = sortedSelectionCopy[i].clone();
     sortedSelectionCopy[i].parent.insertChild(index, clone);
+    clone.x = sortedSelectionCopy[i].x;
+    clone.y = sortedSelectionCopy[i].y;
   });
 
   figma.currentPage.selection.forEach(node => {
