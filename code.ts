@@ -43,12 +43,8 @@ function main() {
 
   clones.forEach(node => {
     if (node.type === 'INSTANCE') {
-      console.log("Is instance")
-      console.log(`mc id: ${node.masterComponent.id}`)
       if (Object.keys(componentMap).includes(node.masterComponent.id)) {
-        console.log(`${node.masterComponent.id} is in map`)
         node.masterComponent = componentMap[node.masterComponent.id]
-        console.log(`updated to ${node.masterComponent.id}`)
       }
     }
   })
