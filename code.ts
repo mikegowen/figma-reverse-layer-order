@@ -1,35 +1,35 @@
 function main() {
   if (figma.currentPage.selection.length <= 1) {
-    let message = "Please select 2 or more layers.";
+    const message = "Please select 2 or more layers.";
     figma.closePlugin(message);
     return;
   }
 
   if (!haveSameParent(figma.currentPage.selection)) {
-    let message = "Please select only layers in this same frame/group.";
+    const message = "Please select only layers in this same frame/group.";
     figma.closePlugin(message);
     return;
   }
 
-  let selectionCopy = figma.currentPage.selection.slice();
+  const selectionCopy = figma.currentPage.selection.slice();
 
-  let sortedSelectionCopy = selectionCopy.sort((a, b) => {
+  const sortedSelectionCopy = selectionCopy.sort((a, b) => {
     return a.parent.children.indexOf(a) - b.parent.children.indexOf(b);
   });
 
-  let selectionIndexes = selectionCopy.map(node => {
+  const selectionIndexes = selectionCopy.map(node => {
     return node.parent.children.indexOf(node);
   });
 
-  let sortedSelectionIndexes = selectionIndexes.sort((a, b) => {
+  const sortedSelectionIndexes = selectionIndexes.sort((a, b) => {
     return b - a;
   });
 
-  let componentMap = {}
-  let clones = []
+  const componentMap = {}
+  const clones = []
 
   sortedSelectionIndexes.forEach((index, i) => {
-    var clone = sortedSelectionCopy[i].clone();
+    let clone = sortedSelectionCopy[i].clone();
     
     if (clone.type === 'COMPONENT') {
       componentMap[sortedSelectionCopy[i].id] = clone
