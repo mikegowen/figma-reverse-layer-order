@@ -1,17 +1,15 @@
 function main() {
   if (figma.currentPage.selection.length <= 1) {
-    const message = "Please select 2 or more layers.";
-    figma.closePlugin(message);
+    figma.closePlugin("Please select 2 or more layers.");
     return;
   }
 
   if (!haveSameParent(figma.currentPage.selection)) {
-    const message = "Please select only layers in this same frame/group.";
-    figma.closePlugin(message);
+    figma.closePlugin("Please select only layers in this same frame/group.");
     return;
   }
 
-  const selectionCopy = figma.currentPage.selection.slice();
+  const selectionCopy = [...figma.currentPage.selection];
 
   const sortedSelectionCopy = selectionCopy.sort((a, b) => {
     return a.parent.children.indexOf(a) - b.parent.children.indexOf(b);
