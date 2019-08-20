@@ -1,6 +1,6 @@
 {
   "name": "Reverse Layer Order",
   "id": "738853407874474111",
-  "api": "1.0.1",
+  "api": "1.0.0",
   "main": "code.js"
 }
